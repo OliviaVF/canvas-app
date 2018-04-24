@@ -48,7 +48,6 @@ class App extends React.Component {
 
     getImage(event) {
         let file = event.target.files[0];
-
         this.setState({
             file: file
         })
