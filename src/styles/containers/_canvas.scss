@@ -1,0 +1,20 @@
+ul {
+  li {
+    list-style: none;
+    button {
+      display:block;
+      height: 3em;
+      width: 3em;
+      border: 0;
+    }
+  }
+  .brush {
+    background: url(http://localhost:8080/src/images/brush.svg) no-repeat center;
+  }
+  .square {
+    background: url(http://localhost:8080/src/images/square.svg) no-repeat center;
+  }
+  .circle {
+    background: url(http://localhost:8080/src/images/circle.svg) no-repeat center;
+  }
+}

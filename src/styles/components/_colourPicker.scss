@@ -1,0 +1,35 @@
+.colour-picker {
+  li {
+    list-style: none;
+    button {
+      display:block;
+      height: 3em;
+      width: 3em;
+      border: 0;
+    }
+  }
+  .red {
+    background: url(http://localhost:8080/src/images/red-tin.svg) no-repeat center;
+  }
+  .blue {
+    background: url(http://localhost:8080/src/images/blue-tin.svg) no-repeat center;
+  }
+  .green {
+    background: url(http://localhost:8080/src/images/green-tin.svg) no-repeat center;
+  }
+  .yellow {
+    background: url(http://localhost:8080/src/images/yellow-tin.svg) no-repeat center;
+  }
+  .orange {
+    background: url(http://localhost:8080/src/images/orange-tin.svg) no-repeat center;
+  }
+  .pink {
+    background: url(http://localhost:8080/src/images/pink-tin.svg) no-repeat center;
+  }
+  .purple {
+    background: url(http://localhost:8080/src/images/purple-tin.svg) no-repeat center;
+  }
+  .black {
+    background: url(http://localhost:8080/src/images/black-tin.svg) no-repeat center;
+  }
+}

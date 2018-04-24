@@ -1,0 +1,38 @@
+@import "../_variables";
+
+header {
+  align-items: center;
+  display: flex;
+  color: $white;
+  background: $darkBlue;
+  .brand {
+    margin-right: auto;
+    img {
+      height: 5em;
+      vertical-align: middle;
+    }
+  }
+  ul {
+    display: flex;
+    li {
+      list-style: none;
+      button {
+        display: block;
+        height: 3em;
+        width: 3em;
+        border: 0;
+      }
+    }
+    .new {
+      background: url(http://localhost:8080/src/images/new.svg) no-repeat center;
+    }
+    .open {
+      background: url(http://localhost:8080/src/images/open.svg) no-repeat center;
+    }
+    .download {
+      background: url(http://localhost:8080/src/images/download.svg) no-repeat center;
+    }
+  }
+}
+
+
