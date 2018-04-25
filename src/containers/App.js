@@ -163,8 +163,9 @@ class App extends React.Component {
     }
 
     drawBrush(lX, lY, cX, cY) {
+        console.log(this)
         const newContext = this.state.context;
-        newContext.strokeStyle = this.state.brushColor;
+        newContext.strokeStyle = this.state.brushColour;
         newContext.lineWidth = this.props.lineWidth;
         this.setState({
             context: newContext
@@ -210,6 +211,7 @@ class App extends React.Component {
                     toggleDownloadPopup={this.toggleDownloadPopup.bind(this)}
                     handleChange={this.handleChange.bind(this)}
                     getImage={this.getImage.bind(this)}
+                    setImage={this.setImage.bind(this)}
                     imageName={this.state.imageName}
                     downloadUrl={this.state.downloadUrl}
                     showNewCanvasPopup={this.state.showNewCanvasPopup}
