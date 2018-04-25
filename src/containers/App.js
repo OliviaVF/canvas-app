@@ -1,5 +1,4 @@
 import React                     from 'react';
-import PropTypes                 from 'prop-types';
 import Header                    from '../partials/Header';
 import {DrawTypeEnums, DrawType} from '../components/DrawType';
 import ColourPicker              from '../components/ColourPicker';
@@ -241,15 +240,5 @@ class App extends React.Component {
     }
 
 }
-
-App.propTypes = {
-    brushColor: PropTypes.string,
-    lineWidth: PropTypes.number,
-    cursor: PropTypes.string,
-    canvasStyle: PropTypes.shape({
-        backgroundColor: PropTypes.string
-    }),
-    newCanvas: PropTypes.bool
-};
 
 export default App;
