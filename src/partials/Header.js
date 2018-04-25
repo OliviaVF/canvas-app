@@ -15,15 +15,17 @@ class Header extends React.Component {
                     <button className="new" onClick={this.props.toggleNewCanvasPopup} />
                 </li>
                 <li>
-                    <button className="open" onClick={this.props.toggleSelectImagePopup} />
+                    <button disabled={!this.props.canvas} className="open" onClick={this.props.toggleSelectImagePopup} />
                 </li>
                 <li>
-                    <button className="download" onClick={this.props.toggleDownloadPopup} />
+                    <button disabled={!this.props.canvas} className="download" onClick={this.props.toggleDownloadPopup} />
                 </li>
             </ul>
             {this.props.showNewCanvasPopup ?
                 <Popup
-                    text={<div><input value={this.props.imageName.replace(/\.[^/.]+$/, "")} onChange={this.props.handleChange} /><span>.jpg</span></div>}
+                    text={<div><input
+                        value={this.props.imageName.replace(/\.[^/.]+$/, "")}
+                        onChange={this.props.handleChange} /><span>.jpg</span></div>}
                     closePopup={this.props.toggleNewCanvasPopup}
                     performAction={<button onClick={this.props.newCanvas}>Go</button>} />
                 : null
@@ -37,9 +39,14 @@ class Header extends React.Component {
             }
             {this.props.showDownloadPopup ?
                 <Popup
-                    text={<div><input value={this.props.imageName.replace(/\.[^/.]+$/, "")} onChange={this.props.handleChange} /><span>.jpg</span></div>}
+                    text={<div><input
+                        value={this.props.imageName.replace(/\.[^/.]+$/, "")}
+                        onChange={this.props.handleChange} /><span>.jpg</span></div>}
                     closePopup={this.props.toggleDownloadPopup}
-                    performAction={<a download={this.props.imageName} href={this.props.downloadUrl} onClick={this.props.toggleDownloadPopup}>Go</a>} />
+                    performAction={<a
+                        download={this.props.imageName}
+                        href={this.props.downloadUrl}
+                        onClick={this.props.toggleDownloadPopup}>Go</a>} />
                 : null
             }
         </header>

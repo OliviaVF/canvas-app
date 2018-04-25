@@ -12,7 +12,7 @@ class App extends React.Component {
             canvas:               null,
             context:              null,
             downloadUrl:          null,
-            drawType:             DrawTypeEnums.brush,
+            drawType:             null,
             showSelectImagePopup: false,
             showDownloadPopup:    false,
             showNewCanvasPopup:   false,
@@ -163,7 +163,6 @@ class App extends React.Component {
     }
 
     drawBrush(lX, lY, cX, cY) {
-        console.log(this)
         const newContext = this.state.context;
         newContext.strokeStyle = this.state.brushColour;
         newContext.lineWidth = this.props.lineWidth;
@@ -220,8 +219,13 @@ class App extends React.Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-1">
-                            <DrawType setDrawType={this.setDrawType.bind(this)} />
-                            <ColourPicker pickColour={this.pickColour.bind(this)}/>
+                            <DrawType
+                                canvas={this.state.canvas}
+                                setDrawType={this.setDrawType.bind(this)} />
+                            <ColourPicker
+                                canvas={this.state.canvas}
+                                drawType={this.state.drawType}
+                                pickColour={this.pickColour.bind(this)}/>
                         </div>
                         <div className="col-md-11">
                             <canvas ref="canvas"

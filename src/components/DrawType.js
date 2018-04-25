@@ -4,13 +4,13 @@ export const DrawType = (props) => {
     return (
         <ul>
             <li>
-                <button className="brush" onClick={() => props.setDrawType(0)} />
+                <button disabled={!props.canvas} className="brush" onClick={() => props.setDrawType(0)} />
             </li>
             <li>
-                <button className="square" onClick={() => props.setDrawType(1)} />
+                <button disabled={!props.canvas} className="square" onClick={() => props.setDrawType(1)} />
             </li>
             <li>
-                <button className="circle" onClick={() => props.setDrawType(2)} />
+                <button disabled={!props.canvas} className="circle" onClick={() => props.setDrawType(2)} />
             </li>
         </ul>
     );
