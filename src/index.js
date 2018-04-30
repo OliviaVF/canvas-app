@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './containers/App';
-import registerServiceWorker from './registerServiceWorker';
+import CanvasApp from './containers/CanvasApp';
 
 if (module.hot) {
     module.hot.accept();
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const container = document.createElement('div');
+document.body.appendChild(container);
+
+ReactDOM.render(<CanvasApp />, container);
