@@ -1,5 +1,6 @@
 import React                     from 'react';
-import {DrawTypeEnums} from '../components/DrawType';
+import {DrawType, DrawTypeEnums} from './DrawType';
+import ColourPicker              from './ColourPicker';
 
 class Canvas extends React.Component {
     constructor(props) {
@@ -7,12 +8,26 @@ class Canvas extends React.Component {
 
         this.state = {
             downloadUrl:          null,
-            drawType:             null
+            drawType:             null,
+            brushColour:          "#000000"
         };
     }
 
     componentDidMount() {
         this.props.getRefFromChild(this.refs.canvas)
+    }
+
+
+    setDrawType(drawType) {
+        this.setState({
+            drawType
+        })
+    }
+
+    pickColour(colour) {
+        this.setState({
+            brushColour: colour
+        })
     }
 
     mouseDown(e) {
@@ -67,8 +82,9 @@ class Canvas extends React.Component {
     }
 
     drawBrush(lX, lY, cX, cY) {
+        console.log(this.state.brushColour)
         const newContext = this.refs.canvas.getContext('2d');
-        newContext.strokeStyle = this.props.brushColour;
+        newContext.strokeStyle = this.state.brushColour;
         newContext.lineWidth = this.props.lineWidth;
         this.setState({
             context: newContext
@@ -104,12 +120,27 @@ class Canvas extends React.Component {
 
     render() {
         return (
-            <div className="canvas">
-                <canvas ref="canvas"
-                        onMouseDown={this.mouseDown.bind(this)}
-                        onMouseMove={this.mouseMove.bind(this)}
-                        onMouseUp={this.mouseUp.bind(this)}>
-                </canvas>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-1">
+                        <DrawType
+                            canvas={this.props.canvas}
+                            setDrawType={this.setDrawType.bind(this)} />
+                        <ColourPicker
+                            canvas={this.props.canvas}
+                            drawType={this.state.drawType}
+                            pickColour={this.pickColour.bind(this)}/>
+                    </div>
+                    <div className="col-md-11">
+                        <canvas
+                            className="canvas"
+                            ref="canvas"
+                            onMouseDown={this.mouseDown.bind(this)}
+                            onMouseMove={this.mouseMove.bind(this)}
+                            onMouseUp={this.mouseUp.bind(this)}>
+                        </canvas>
+                    </div>
+                </div>
             </div>
         );
     }
